@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在地行銷企劃書：台南市萬川號餅舖</title>
+    <!-- Google Fonts & Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#8C2626',
+                            crimson: '#A61C1C',
+                            gold: '#D4AF37',
+                            darkgold: '#B38F29',
+                            cream: '#FAFAFA',
+                            warmbg: '#F5F2EB',
+                            dark: '#1F1F1F'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Noto Sans TC"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F5F2EB;
+            color: #1F1F1F;
+        }
+        h1, h2, h3, .font-serif-title {
+            font-family: 'Noto Serif TC', serif;
+        }
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #8C2626, #D4AF37);
+            z-index: 50;
+            transition: width 0.1s ease-out;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: white; color: black; }
+            .print-shadow-none { box-shadow: none !important; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- 頂部閱讀進度條 -->
+    <div id="progress-bar" class="scroll-progress no-print" style="width: 0%;"></div>
+
+    <!-- 頂部導覽列 -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm border-b border-amber-900/10 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-3 h-8 bg-brand-red rounded-full"></span>
+                <span class="font-serif text-xl font-bold text-brand-red tracking-wider">萬川號企劃網頁版</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+                <a href="#intro" class="hover:text-brand-red transition">企劃緣起</a>
+                <a href="#swot" class="hover:text-brand-red transition">SWOT分析</a>
+                <a href="#tows" class="hover:text-brand-red transition">TOWS策略</a>
+                <a href="#product" class="hover:text-brand-red transition">創新產品</a>
+                <a href="#financial" class="hover:text-brand-red transition">財務圖表</a>
+                <a href="#timeline" class="hover:text-brand-red transition">執行時程</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <button onclick="window.print()" class="px-4 py-2 text-xs font-semibold text-brand-red border border-brand-red rounded-md hover:bg-brand-red hover:text-white transition">
+                    列印 / 匯出 PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 企劃 Header / 封面區塊 -->
+    <section id="intro" class="relative bg-brand-red text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden shadow-lg">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-block px-4 py-1 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 rounded-full text-xs font-medium tracking-widest mb-4">
+                在地行銷企劃書
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 font-serif leading-tight">
+                百年府城新滋味<br class="sm:hidden">——萬川號品牌年輕化與創新伴手禮行銷企劃
+            </h1>
+            <p class="text-amber-100 text-base sm:text-lg max-w-3xl mx-auto font-light leading-relaxed mb-8">
+                百年府城好味道，讓傳統糕餅走進年輕世代
+            </p>
+            
+            <!-- 企劃基本資訊卡條 -->
+            <div class="bg-black/20 backdrop-blur border border-white/10 rounded-xl p-4 sm:p-6 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-left text-xs sm:text-sm">
+                <div>
+                    <span class="text-amber-200/70 block text-xs">製作人</span>
+                    <span class="font-semibold text-white">吳宥勝</span>
+                </div>
+                <div>
+                    <span class="text-amber-200/70 block text-xs">學校團隊</span>
+                    <span class="font-semibold text-white">長榮大學</span>
+                </div>
+                <div>
+                    <span class="text-amber-200/70 block text-xs">課程名稱</span>
+                    <span class="font-semibold text-white">企劃書撰寫實務</span>
+                </div>
+                <div>
+                    <span class="text-amber-200/70 block text-xs">企劃對象</span>
+                    <span class="font-semibold text-white">台南市萬川號餅舖</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主體內容容器 -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+
+        <!-- 壹、企劃目標與具體指標 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-900/5 print-shadow-none">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-1.5 h-6 bg-brand-red rounded-full"></span>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">壹、企劃名稱與目標</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-brand-red flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        企劃緣起與重點
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        萬川號餅舖創立於 1871 年，擁有超過 150 年歷史。隨著消費習慣改變，企劃旨在結合萬川號歷史底蘊與台南觀光資源，開發具市場吸引力之新產品，並利用社群行銷創造新需求。
+                    </p>
+                    <div class="p-4 bg-amber-50/60 border-l-4 border-brand-gold rounded-r-lg text-xs text-gray-700 space-y-1">
+                        <p><strong>企劃期間：</strong> 三個月</p>
+                        <p><strong>企劃重點：</strong> 品牌年輕化、創新產品開發、社群行銷及營業額提升</p>
+                        <p><strong>店家地址：</strong> 台南市中西區民權路一段205號</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-warmbg/50 p-5 rounded-xl border border-amber-900/10">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4 font-serif">三個月具體量化目標</h3>
+                    <div class="grid grid-cols-2 gap-3 text-center">
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-xs text-gray-500">社群追蹤人數</span>
+                            <div class="text-xl font-bold text-brand-red mt-1">+20%</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-xs text-gray-500">社群累計觸及</span>
+                            <div class="text-xl font-bold text-brand-red mt-1">30,000 人次</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-xs text-gray-500">店面來客數</span>
+                            <div class="text-xl font-bold text-brand-red mt-1">+10%</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <span class="text-xs text-gray-500">創新禮盒銷售</span>
+                            <div class="text-xl font-bold text-brand-red mt-1">450 盒</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 bg-brand-red/10 p-2.5 rounded-lg text-center">
+                        <span class="text-xs font-medium text-brand-red">預估創造新產品營業額：NT$ 179,550 元</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 貳、SWOT 四象限分析 -->
+        <section id="swot" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-900/5 print-shadow-none">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-1.5 h-6 bg-brand-red rounded-full"></span>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">貳、SWOT 四象限分析</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- S 優勢 -->
+                <div class="p-5 rounded-xl bg-emerald-50/50 border border-emerald-200/60">
+                    <div class="flex items-center space-x-2 text-emerald-800 font-bold font-serif mb-3">
+                        <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center">S</span>
+                        <h3>優勢 Strengths (內部)</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm text-gray-700 space-y-2 list-disc list-inside leading-relaxed">
+                        <li>S1: 擁有超過 150 年品牌歷史與深刻在地文化故事。</li>
+                        <li>S2: 世代傳承，保留傳統手工製餅技術與獨特風味。</li>
+                        <li>S3: 商品豐富（鮮肉包、水晶餃、古月餅、香餅等）。</li>
+                        <li>S4: 位於台南市中西區觀光核心地理優勢。</li>
+                    </ul>
+                </div>
+
+                <!-- W 劣勢 -->
+                <div class="p-5 rounded-xl bg-rose-50/50 border border-rose-200/60">
+                    <div class="flex items-center space-x-2 text-rose-800 font-bold font-serif mb-3">
+                        <span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs flex items-center justify-center">W</span>
+                        <h3>劣勢 Weaknesses (內部)</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm text-gray-700 space-y-2 list-disc list-inside leading-relaxed">
+                        <li>W1: 品牌形象偏成熟，對年輕族群吸引力尚待提昇。</li>
+                        <li>W2: 缺少一款明確定位為年輕人與觀光客首選之創新伴手禮。</li>
+                        <li>W3: 品牌故事於短影音及數位媒體之推廣空間仍大。</li>
+                        <li>W4: 商品組合包裝與數位訂購服務需創新發展。</li>
+                    </ul>
+                </div>
+
+                <!-- O 機會 -->
+                <div class="p-5 rounded-xl bg-blue-50/50 border border-blue-200/60">
+                    <div class="flex items-center space-x-2 text-blue-800 font-bold font-serif mb-3">
+                        <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center">O</span>
+                        <h3>機會 Opportunities (外部)</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm text-gray-700 space-y-2 list-disc list-inside leading-relaxed">
+                        <li>O1: 台南觀光資源豐富，觀光客伴手禮需求強勁。</li>
+                        <li>O2: 年輕族群對復古老店與傳統美食興趣漸增。</li>
+                        <li>O3: 社群平台（IG、TikTok）提供低成本宣傳機會。</li>
+                        <li>O4: 節慶與企業贈禮市場潛力大。</li>
+                    </ul>
+                </div>
+
+                <!-- T 威脅 -->
+                <div class="p-5 rounded-xl bg-amber-50/50 border border-amber-200/60">
+                    <div class="flex items-center space-x-2 text-amber-800 font-bold font-serif mb-3">
+                        <span class="w-6 h-6 rounded-full bg-amber-600 text-white text-xs flex items-center justify-center">T</span>
+                        <h3>威脅 Threats (外部)</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm text-gray-700 space-y-2 list-disc list-inside leading-relaxed">
+                        <li>T1: 府城傳統糕餅與伴手禮品牌眾多，競爭激烈。</li>
+                        <li>T2: 原物料、人工及包裝成本上漲壓力。</li>
+                        <li>T3: 年輕世代飲食習慣轉變。</li>
+                        <li>T4: 網路評價傳播快速，品牌口碑管理挑戰大。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 參、TOWS 交叉策略分析 -->
+        <section id="tows" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-900/5 print-shadow-none">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-1.5 h-6 bg-brand-red rounded-full"></span>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">參、TOWS 交叉策略矩陣</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <!-- SO 策略 -->
+                    <div class="border border-gray-200 rounded-xl p-4 bg-gray-50/50">
+                        <h4 class="font-bold text-brand-red text-sm mb-2">SO 增長策略 (用優勢抓機會)</h4>
+                        <ul class="text-xs text-gray-600 space-y-1.5">
+                            <li><strong>SO1 (S1+S2+O2)：百年品牌故事行銷</strong> - 製作品牌歷史短影音吸引年輕迷古族群。</li>
+                            <li><strong>SO2 (S3+S4+O1+O4)：府城特色伴手禮推廣</strong> - 設計文化禮盒組合搶攻觀光與節慶禮品市場。</li>
+                        </ul>
+                    </div>
+
+                    <!-- ST 策略 -->
+                    <div class="border border-gray-200 rounded-xl p-4 bg-gray-50/50">
+                        <h4 class="font-bold text-brand-red text-sm mb-2">ST 多元策略 (用優勢擋威脅)</h4>
+                        <ul class="text-xs text-gray-600 space-y-1.5">
+                            <li><strong>ST1 (S1+S2+T1)：建立品牌差異化</strong> - 強調 150 年手工傳承，區隔同業競爭。</li>
+                            <li><strong>ST2 (S3+T3)：發展特色商品組合</strong> - 彈性組合不同價位，增加多樣消費機會。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- WO 策略 (核心) -->
+                    <div class="border-2 border-brand-gold rounded-xl p-4 bg-amber-50/30">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-brand-red text-sm">WO 扭轉策略 (借機會補弱點)</h4>
+                            <span class="bg-brand-gold text-white text-[10px] px-2 py-0.5 rounded font-bold">最重要策略</span>
+                        </div>
+                        <ul class="text-xs text-gray-700 space-y-1.5">
+                            <li><strong>WO1 (W1+W3+O2+O3)：社群媒體年輕化</strong> - 經營社群短影音介紹老店魅力。</li>
+                            <li class="bg-white p-2 rounded border border-amber-200">
+                                <strong class="text-brand-red">WO2 (W2+W4+O1+O4)：創新伴手禮開發</strong><br>
+                                開發「府城百年味道探索盒」，結合文化包裝與數位 QR Code，拓展觀光與青年送禮市場。
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- WT 策略 -->
+                    <div class="border border-gray-200 rounded-xl p-4 bg-gray-50/50">
+                        <h4 class="font-bold text-brand-red text-sm mb-2">WT 防禦策略 (減弱點避威脅)</h4>
+                        <ul class="text-xs text-gray-600 space-y-1.5">
+                            <li><strong>WT1 (W3+T4)：建立網路評價管理</strong> - 健全客服與社群回應機制。</li>
+                            <li><strong>WT2 (W2+W4+T2)：精簡商品及控制成本</strong> - 採預購與主力推廣降低庫存風險。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 肆、核心創新產品設計 -->
+        <section id="product" class="bg-gradient-to-br from-brand-red to-brand-crimson text-white rounded-2xl p-6 sm:p-8 shadow-md">
+            <div class="max-w-3xl">
+                <span class="inline-block text-xs text-amber-200 bg-white/10 px-3 py-1 rounded-full mb-3">最重要執行策略 WO2</span>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif mb-4">萬川號・府城百年味道探索盒</h2>
+                <p class="text-amber-100 text-sm leading-relaxed mb-6">
+                    將 150 多年傳統糕餅文化，重新組合轉化為現代年輕人及觀光客易於購買、分享及送禮之精緻特色伴手禮。
+                </p>
+
+                <!-- 六款傳統糕餅內容組合 -->
+                <div class="bg-white/10 backdrop-blur rounded-xl p-4 sm:p-6 border border-white/15 mb-6">
+                    <h3 class="text-base font-semibold text-amber-300 font-serif mb-3">禮盒精選六款糕餅內容</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-amber-50">
+                        <div class="bg-black/20 p-2.5 rounded text-center">古月餅 (傳統文化)</div>
+                        <div class="bg-black/20 p-2.5 rounded text-center">黑香餅 (府城古風)</div>
+                        <div class="bg-black/20 p-2.5 rounded text-center">白香餅 (傳統特色)</div>
+                        <div class="bg-black/20 p-2.5 rounded text-center">沙西餅 (風味多樣)</div>
+                        <div class="bg-black/20 p-2.5 rounded text-center">茯苓糕 (古早懷舊)</div>
+                        <div class="bg-black/20 p-2.5 rounded text-center">綠豆糕 (細緻可口)</div>
+                    </div>
+                </div>
+
+                <!-- 五大創新維度 -->
+                <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                    <div class="bg-white/5 p-3 rounded border border-white/10">
+                        <strong class="text-amber-300">1. 商品創新：</strong> 組合單品為豐富禮盒，一次滿足多重風味。
+                    </div>
+                    <div class="bg-white/5 p-3 rounded border border-white/10">
+                        <strong class="text-amber-300">2. 包裝創新：</strong> 結合老街古蹟圖騰，升級質感送禮包裝。
+                    </div>
+                    <div class="bg-white/5 p-3 rounded border border-white/10">
+                        <strong class="text-amber-300">3. 文化創新：</strong> 附贈「百年糕餅故事卡」傳遞典故。
+                    </div>
+                    <div class="bg-white/5 p-3 rounded border border-white/10">
+                        <strong class="text-amber-300">4. 數位創新：</strong> 設有 QR Code，導覽歷史與製作影片。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 伍、財務試算與動態圖表 -->
+        <section id="financial" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-900/5 print-shadow-none">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-1.5 h-6 bg-brand-red rounded-full"></span>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">伍、財務與效益試算</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                <!-- 單盒數據 -->
+                <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200/60 text-center">
+                    <span class="text-xs text-gray-500">建議售價與成本</span>
+                    <div class="text-2xl font-bold text-brand-red my-1">NT$ 399 / 盒</div>
+                    <p class="text-xs text-gray-600">估計成本: $220 元 | 毛利: $179 元</p>
+                    <span class="inline-block mt-2 px-2 py-0.5 bg-brand-gold/20 text-brand-darkgold text-[10px] rounded font-semibold">毛利率 44.9%</span>
+                </div>
+                
+                <!-- 三個月銷售 -->
+                <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200/60 text-center">
+                    <span class="text-xs text-gray-500">三個月銷售目標</span>
+                    <div class="text-2xl font-bold text-brand-red my-1">450 盒</div>
+                    <p class="text-xs text-gray-600">平均每日僅需銷售約 5 盒</p>
+                    <span class="inline-block mt-2 px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] rounded font-semibold">每月 150 盒</span>
+                </div>
+
+                <!-- 總營收與毛利 -->
+                <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200/60 text-center">
+                    <span class="text-xs text-gray-500">預估創造營業額</span>
+                    <div class="text-2xl font-bold text-brand-red my-1">NT$ 179,550</div>
+                    <p class="text-xs text-gray-600">商品總毛利: NT$ 80,550 元</p>
+                    <span class="inline-block mt-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] rounded font-semibold">扣除行銷費剩餘 $44,550</span>
+                </div>
+            </div>
+
+            <!-- Chart.js 數據視覺化圖表區塊 -->
+            <div class="grid md:grid-cols-2 gap-6 no-print">
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                    <h4 class="text-xs font-bold text-gray-700 text-center mb-3">三個月預估營業額與累積毛利 (NT$)</h4>
+                    <div class="h-56 relative">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                    <h4 class="text-xs font-bold text-gray-700 text-center mb-3">三個月行銷與開發預算配置 (總計 $36,000)</h4>
+                    <div class="h-56 relative flex justify-center">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 陸、執行時程與預算編列 -->
+        <section id="timeline" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-900/5 print-shadow-none">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-1.5 h-6 bg-brand-red rounded-full"></span>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">陸、執行時程與預算編列</h2>
+            </div>
+
+            <!-- 三階段流程 -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <div class="border-l-4 border-brand-red bg-gray-50 p-4 rounded-r-xl">
+                    <span class="text-xs font-bold text-brand-red">第 1 個月</span>
+                    <h4 class="font-bold text-sm text-gray-800 mt-1">產品開發與品牌準備</h4>
+                    <p class="text-xs text-gray-600 mt-2">確認糕餅組合、試作產品、設計包裝卡片與 QR Code，建立社群宣傳內容。</p>
+                </div>
+                <div class="border-l-4 border-brand-gold bg-gray-50 p-4 rounded-r-xl">
+                    <span class="text-xs font-bold text-brand-darkgold">第 2 個月</span>
+                    <h4 class="font-bold text-sm text-gray-800 mt-1">正式上市與市場推廣</h4>
+                    <p class="text-xs text-gray-600 mt-2">禮盒上市，發布短影音，進行社群廣告投放、門市試吃打卡與美食創作者合作。</p>
+                </div>
+                <div class="border-l-4 border-emerald-600 bg-gray-50 p-4 rounded-r-xl">
+                    <span class="text-xs font-bold text-emerald-600">第 3 個月</span>
+                    <h4 class="font-bold text-sm text-gray-800 mt-1">銷售擴大與成果評估</h4>
+                    <p class="text-xs text-gray-600 mt-2">推廣企業團購與節慶促銷，收集滿意度問卷，統計營收與效益評估。</p>
+                </div>
+            </div>
+
+            <!-- 預算明細表格 -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-left text-gray-600 border-collapse">
+                    <thead class="bg-brand-warmbg text-gray-800 font-serif">
+                        <tr>
+                            <th class="p-3 rounded-l-lg">預算項目</th>
+                            <th class="p-3 text-right">預估金額 (NT$)</th>
+                            <th class="p-3 rounded-r-lg">說明與用途</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr><td class="p-3">禮盒包裝設計</td><td class="p-3 text-right font-medium">$5,000</td><td class="p-3">府城文化風格視覺設計</td></tr>
+                        <tr><td class="p-3">品牌與商品攝影</td><td class="p-3 text-right font-medium">$3,000</td><td class="p-3">高品質宣傳照片拍攝</td></tr>
+                        <tr><td class="p-3">短影音拍攝與剪輯</td><td class="p-3 text-right font-medium">$6,000</td><td class="p-3">12 支社群影音內容製作</td></tr>
+                        <tr><td class="p-3">社群廣告投放</td><td class="p-3 text-right font-medium">$6,000</td><td class="p-3">FB / IG 精準精準客群投放</td></tr>
+                        <tr><td class="p-3">樣品試吃活動</td><td class="p-3 text-right font-medium">$5,000</td><td class="p-3">門市體驗與消費者試食</td></tr>
+                        <tr><td class="p-3">宣傳海報及印刷</td><td class="p-3 text-right font-medium">$2,000</td><td class="p-3">故事卡與立牌印刷</td></tr>
+                        <tr><td class="p-3">美食創作者合作</td><td class="p-3 text-right font-medium">$5,000</td><td class="p-3">在地 KOL 開箱體驗推廣</td></tr>
+                        <tr><td class="p-3">預備金</td><td class="p-3 text-right font-medium">$4,000</td><td class="p-3">彈性支出備用</td></tr>
+                        <tr class="font-bold text-brand-red bg-amber-50/50"><td class="p-3">合計</td><td class="p-3 text-right">$36,000</td><td class="p-3">行銷與產品開發預算總計</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 柒、結論 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-amber-900/5 print-shadow-none">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="w-1.5 h-6 bg-brand-red rounded-full"></span>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">柒、企劃總結</h2>
+            </div>
+            <blockquote class="p-4 bg-brand-warmbg border-l-4 border-brand-red text-xs sm:text-sm text-gray-700 italic my-4 rounded-r">
+                「傳承百年好味道，創造府城新商機；讓傳統不只是回憶，更成為下一代願意購買的好產品。」
+            </blockquote>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                透過傳統手工工藝與現代創新禮盒的結合，萬川號能在保有 150 年深刻文化價值的同時，成功吸引年輕族群與觀光市場，實現品牌年輕化與營收增長的雙重目標。
+            </p>
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-brand-dark text-gray-400 text-xs py-8 border-t border-gray-800 no-print">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-2">
+            <p class="text-gray-300 font-serif">在地行銷企劃書：台南市萬川號餅舖</p>
+            <p>長榮大學 企劃書撰寫實務課程作業 | 製作人：吳宥勝</p>
+            <p class="text-gray-600">© 萬川號餅舖行銷企劃案 Demo Page</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 腳本區塊 -->
+    <script>
+        // 閱讀進度條
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        // Chart.js 動態圖表初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            // 1. 營業額圖表
+            const ctxRev = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctxRev, {
+                type: 'bar',
+                data: {
+                    labels: ['第 1 個月', '第 2 個月', '第 3 個月'],
+                    datasets: [
+                        {
+                            label: '每月預估營業額 ($)',
+                            data: [59850, 59850, 59850],
+                            backgroundColor: '#8C2626',
+                            borderRadius: 4
+                        },
+                        {
+                            label: '累積毛利 ($)',
+                            data: [26850, 53700, 80550],
+                            backgroundColor: '#D4AF37',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { font: { size: 10 } } } },
+                    scales: { y: { beginAtZero: true, ticks: { font: { size: 9 } } }, x: { ticks: { font: { size: 9 } } } }
+                }
+            });
+
+            // 2. 預算配置圖表
+            const ctxBud = document.getElementById('budgetChart').getContext('2d');
+            new Chart(ctxBud, {
+                type: 'doughnut',
+                data: {
+                    labels: ['包裝設計 ($5k)', '攝影影音 ($9k)', '廣告投放 ($6k)', '體驗試吃 ($5k)', '創作者合作 ($5k)', '預備金與宣傳 ($6k)'],
+                    datasets: [{
+                        data: [5000, 9000, 6000, 5000, 5000, 6000],
+                        backgroundColor: ['#8C2626', '#D4AF37', '#3B82F6', '#10B981', '#F59E0B', '#9CA3AF']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { font: { size: 9 }, boxWidth: 10 } } }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
